@@ -1,18 +1,35 @@
 const { app, BrowserWindow } = require('electron')
 const path = require('path')
+const gotTheLock = app.requestSingleInstanceLock()
 
 const createWindow = () => {
     const win = new BrowserWindow({
-        width: 800,
-        height: 600,
-        autoHideMenuBar: true,
-        frame: false,
+        transparent: true, // deja trasparente el background de la ventana
+        frame: false, // deja sin marco la venta y botones
+        resizable: false,
+        closable: false,
+        width: 185,
+        height: 140,
+        icon: path.join(__dirname, "build-assets/alerta.ico"),
         webPreferences: {
             preload: path.join(__dirname, 'preload.js')
         }
     })
 
-    win.loadURL('http://192.168.9.114/MCO/php/views/pventa/login.php')
+
+    win.loadFile('index.html')
+}
+
+if (!gotTheLock) { ///
+    app.quit()
+} else {
+    ('second-instance', (event, commandLine, workingDirectory) => {
+        if (win) {
+            if (win.isMinimized()) win.restore()
+            win.focus()
+        }
+    })
+
 }
 
 

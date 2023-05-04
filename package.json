@@ -7,7 +7,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron-forge start",
     "package": "electron-forge package",
-    "make": "electron-forge make"
+    "make": "electron-forge make",
+    "pack": "electron-builder --dir",
+    "build": "electron-builder",
+    "icon": "build-assets/alerta.ico"
   },
   "author": "lucas salazar",
   "license": "MIT",
@@ -17,9 +20,20 @@
     "@electron-forge/maker-rpm": "^6.1.1",
     "@electron-forge/maker-squirrel": "^6.1.1",
     "@electron-forge/maker-zip": "^6.1.1",
-    "electron": "^24.1.2"
+    "electron": "^24.1.2",
+    "electron-builder": "^24.3.0"
   },
   "dependencies": {
     "electron-squirrel-startup": "^1.0.0"
+  },
+  "build": {
+    "appId": "com.lsalazar.app",
+    "asar": true,
+    "mac": {
+      "icon": "build-assets/alerta.ico"
+    },
+    "win": {
+      "icon": "build-assets/alerta.ico"
+    }
   }
 }

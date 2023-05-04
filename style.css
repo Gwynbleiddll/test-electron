@@ -1,0 +1,35 @@
+body {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    background-color: transparent;
+    -webkit-app-region: drag;
+    user-select: none;
+}
+
+#boton-panico {
+    -webkit-app-region: no-drag;
+    display: block;
+    padding: 6px 16px;
+    font-size: 20px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #ff0000;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+}
+
+
+#boton-panico:hover {
+    background-color: #d60000
+}
+
+#boton-panico:active {
+    background-color: #d60000;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
